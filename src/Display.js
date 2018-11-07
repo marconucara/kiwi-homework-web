@@ -1,13 +1,13 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import HintsList from './HintsList';
+
 const DisplayWrapper = styled.div`
   width: 100%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  text
 `;
 
 const cursor = keyframes`
@@ -21,6 +21,7 @@ const cursor = keyframes`
 
 const Textarea = styled.div`
   width: 100%;
+  padding: 1em;
   flex-grow: 1;
   &::after {
     content: "|";
@@ -29,10 +30,10 @@ const Textarea = styled.div`
   }
 `;
 
-const Display = () => (
+const Display = ({ text, hints, activeHintIndex }) => (
   <DisplayWrapper>
-    <Textarea>some text</Textarea>
-    <div>suggestion list here</div>
+    <Textarea>{text}</Textarea>
+    <HintsList hints={hints} activeHintIndex={activeHintIndex} />
   </DisplayWrapper>
 );
 
