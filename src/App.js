@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Provider } from 'react-redux';
 
 import GlobalStyle from './globalStyle';
-import Phone from './Phone';
+import Phone from './Phone/container';
+
+import configureStore from './Phone/store';
+
+const store = configureStore();
 
 const AppWrapper = styled.div`
   display: flex;
@@ -12,10 +17,12 @@ const AppWrapper = styled.div`
 `;
 
 const App = () => (
-  <AppWrapper>
-    <GlobalStyle />
-    <Phone />
-  </AppWrapper>
+  <Provider store={store}>
+    <AppWrapper>
+      <GlobalStyle />
+      <Phone />
+    </AppWrapper>
+  </Provider>
 );
 
 export default App;
