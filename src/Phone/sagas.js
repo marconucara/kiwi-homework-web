@@ -1,24 +1,23 @@
-import { takeLatest, put, call } from 'redux-saga/effects'
+import { select, takeLatest, put, call } from 'redux-saga/effects'
 import fetch from 'isomorphic-fetch'
 import * as actions from './actions'
 
 const fetchHintsApi = async number => {
-  console.log(number);
-  // TODO remove false delay:
-  // await new Promise(resolve => setTimeout(resolve, 500));
-
   return fetch(`/hints.json?${number}`)
     .then(response => response.json())
     .then(json => json.hints)
 }
 
-export function* fetchHints({ number }) {
+export function* fetchHints() {
+  const number = yield select(state => state.phone.number);
+
   if (number === '') {
     yield put(actions.setHints([]));
     return;
   }
 
   try {    
+    yield put(actions.fetchHints(number));
     const hints = yield call(fetchHintsApi, number);
     yield put(actions.setHints(hints));
   } catch (e) {
@@ -27,5 +26,6 @@ export function* fetchHints({ number }) {
 }
 
 export function* latestHints() {
-  yield takeLatest(actions.HINTS_FETCH, fetchHints);
+  yield takeLatest(actions.ADD_DIGIT, fetchHints);
+  yield takeLatest(actions.DELETE_DIGIT, fetchHints);
 }

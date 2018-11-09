@@ -11,7 +11,7 @@ const KeyboardWrapper = styled.div`
   grid-gap: 2px;
 `;
 
-const Keyboard = ({ onNumberClick, onToggleClick, onCancelClick, onEndClick }) => (
+const Keyboard = ({ onNumberClick, onToggleClick, onDeleteClick, onEndClick }) => (
   <KeyboardWrapper>
     <PhoneButton hint="">1</PhoneButton>
     <PhoneButton onClick={() => onNumberClick(2)} hint="abc">2</PhoneButton>
@@ -24,7 +24,7 @@ const Keyboard = ({ onNumberClick, onToggleClick, onCancelClick, onEndClick }) =
     <PhoneButton onClick={() => onNumberClick(9)} hint="wxyz">9</PhoneButton>
     <PhoneButton onClick={onToggleClick} hint="NEXT">*</PhoneButton>
     <PhoneButton onClick={onEndClick} hint="_">0</PhoneButton>
-    <PhoneButton onClick={onCancelClick} hint="DEL">#</PhoneButton>
+    <PhoneButton onClick={onDeleteClick} hint="DEL">#</PhoneButton>
   </KeyboardWrapper>
 );
 
@@ -32,7 +32,7 @@ Keyboard.propTypes = {
   onNumberClick: PropTypes.func.isRequired,
   onEndClick: PropTypes.func.isRequired,
   onToggleClick: PropTypes.func.isRequired,
-  onCancelClick: PropTypes.func.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
 }
 
 export default Keyboard;

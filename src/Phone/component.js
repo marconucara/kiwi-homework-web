@@ -33,7 +33,7 @@ const Phone = ({
   onNumberClick,
   onEndClick,
   onToggleClick,
-  onCancelClick
+  onDeleteClick,
 }) => (
   <PhoneWrapper>
     <Display text={text} hints={hints} activeHintIndex={activeHintIndex} />
@@ -41,7 +41,7 @@ const Phone = ({
       onNumberClick={onNumberClick}
       onEndClick={onEndClick}
       onToggleClick={onToggleClick}
-      onCancelClick={onCancelClick}
+      onDeleteClick={onDeleteClick}
     />
   </PhoneWrapper>
 );
@@ -53,7 +53,7 @@ Phone.propTypes = {
   onNumberClick: PropTypes.func.isRequired,
   onEndClick: PropTypes.func.isRequired,
   onToggleClick: PropTypes.func.isRequired,
-  onCancelClick: PropTypes.func.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
 }
 
 export default Phone;
