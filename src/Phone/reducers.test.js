@@ -1,7 +1,7 @@
 import { phone as reducer } from './reducers';
 import * as actions from './actions';
 
-describe('todos reducer', () => {
+describe('phone reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       isFetching: false,
@@ -91,15 +91,45 @@ describe('todos reducer', () => {
     });
   });
 
-  it('should handle DELETE_DIGIT', () => {
+  it('should handle DELETE_DIGIT_OR_WORD for digit', () => {
     expect(
       reducer({
         number: '32',
+        text: 'some ',
       }, {
-        type: actions.DELETE_DIGIT,
+        type: actions.DELETE_DIGIT_OR_WORD,
       })
     ).toEqual({
       number: '3',
+      text: 'some ',
+    });
+  });
+
+  it('should handle DELETE_DIGIT_OR_WORD for word', () => {
+    expect(
+      reducer({
+        number: '',
+        text: 'some text ',
+      }, {
+        type: actions.DELETE_DIGIT_OR_WORD,
+      })
+    ).toEqual({
+      number: '',
+      text: 'some ',
+    });
+  });
+
+  it('should handle DELETE_DIGIT_OR_WORD for empty', () => {
+    expect(
+      reducer({
+        number: '',
+        text: '',
+      }, {
+        type: actions.DELETE_DIGIT_OR_WORD,
+      })
+    ).toEqual({
+      number: '',
+      text: '',
     });
   });
 

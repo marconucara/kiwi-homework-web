@@ -26,5 +26,5 @@ export function* fetchHints() {
 }
 
 export function* latestHints() {
-  yield takeLatest([actions.ADD_DIGIT, actions.DELETE_DIGIT], fetchHints);
+  yield takeLatest([actions.ADD_DIGIT, actions.DELETE_DIGIT_OR_WORD], fetchHints);
 }

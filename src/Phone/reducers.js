@@ -5,7 +5,7 @@ import {
   HINTS_SET,
   HINTS_RESET,
   ADD_DIGIT,
-  DELETE_DIGIT,
+  DELETE_DIGIT_OR_WORD,
   TOGGLE_ACTIVE_HINT,
   ADD_WORD,
 } from './actions'
@@ -56,12 +56,12 @@ export const phone = (
         ...state, 
         number: state.number.concat(action.digit),
       };
-    case DELETE_DIGIT:
-      // TODO: it deletes only from current wordAsNumber, it could delete 
-      // previous space and previous words too
+    case DELETE_DIGIT_OR_WORD:
       return { 
         ...state, 
         number: state.number.length ? state.number.slice(0, -1) : '',
+        text: state.number.length ? state.text :
+          (t => t.slice(0, t.match(/([^ ]* ?)$/).index))(state.text)
       };
     case ADD_WORD:
       // TODO: it adds multiple whitespace but JSX/HTML do not show them

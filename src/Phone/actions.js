@@ -3,7 +3,7 @@ export const HINTS_FETCH_FAILED = 'HINTS/FETCH_FAILED';
 export const HINTS_SET = 'HINTS/SET';
 export const HINTS_RESET = 'HINTS/RESET';
 export const ADD_DIGIT = 'ADD_DIGIT';
-export const DELETE_DIGIT = 'DELETE_DIGIT';
+export const DELETE_DIGIT_OR_WORD = 'DELETE_DIGIT_OR_WORD';
 export const ADD_WORD = 'ADD_WORD';
 export const TOGGLE_ACTIVE_HINT = 'TOGGLE_ACTIVE_HINT';
 
@@ -31,8 +31,8 @@ export const addDigit = digit => ({
   digit,
 });
 
-export const deleteDigit = digit => ({
-  type: DELETE_DIGIT,
+export const deleteDigitOrWord = () => ({
+  type: DELETE_DIGIT_OR_WORD,
 });
 
 export const addWord = () => ({

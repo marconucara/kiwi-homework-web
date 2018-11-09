@@ -1,13 +1,5 @@
 import * as actions from './actions';
 
-export const HINTS_FETCH_FAILED = 'HINTS/FETCH_FAILED';
-export const HINTS_SET = 'HINTS/SET';
-export const HINTS_RESET = 'HINTS/RESET';
-export const ADD_DIGIT = 'ADD_DIGIT';
-export const DELETE_DIGIT = 'DELETE_DIGIT';
-export const ADD_WORD = 'ADD_WORD';
-export const TOGGLE_ACTIVE_HINT = 'TOGGLE_ACTIVE_HINT';
-
 describe('actions', () => {
   it('should create an action to fetch hints', () => {
     const number = '234';
@@ -45,9 +37,9 @@ describe('actions', () => {
 
   it('should create an action to remove digit', () => {
     const expectedAction = {
-      type: actions.DELETE_DIGIT,
+      type: actions.DELETE_DIGIT_OR_WORD,
     };
-    expect(actions.deleteDigit()).toEqual(expectedAction)
+    expect(actions.deleteDigitOrWord()).toEqual(expectedAction)
   });
 
   it('should create an action to add word', () => {
