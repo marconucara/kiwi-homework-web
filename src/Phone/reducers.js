@@ -10,7 +10,7 @@ import {
   ADD_WORD,
 } from './actions'
 
-function phone(
+export const phone = (
   state = {
     isFetching: false,
     hints: [],
@@ -19,7 +19,7 @@ function phone(
     text: '',
   },
   action,
-) {
+) => {
   switch (action.type) {
     case HINTS_FETCH:
       return { 
@@ -34,6 +34,7 @@ function phone(
         isFetching: false,
         hints: action.hints,
         activeHintIndex: 0,
+        fetchErrorMessage: '',
       };
     case HINTS_FETCH_FAILED:
       return {
@@ -48,6 +49,7 @@ function phone(
         ...state,
         isFetching: false,
         hints: [],
+        activeHintIndex: 0,
       };
     case ADD_DIGIT:
       return { 
@@ -80,9 +82,8 @@ function phone(
   }
 }
 
-
 const rootReducer = combineReducers({
   phone,
 })
 
-export default rootReducer
+export default rootReducer;
