@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import PhoneComponent from './component';
 import { addDigit, deleteDigitOrWord, addWord, toggleActiveHint } from './actions';
 
 const Phone = ({
@@ -15,6 +14,7 @@ const Phone = ({
   deleteDigitOrWord,
   toggleActiveHint,
   addWord,
+  PhoneComponent
 }) => (
   <PhoneComponent 
     text={text}
@@ -37,6 +37,7 @@ Phone.propTypes = {
   addWord: PropTypes.func.isRequired,
   toggleActiveHint: PropTypes.func.isRequired,
   fetchErrorMessage: PropTypes.string,
+  PhoneComponent: PropTypes.func,
 }
 
 export default connect(state => state.phone, dispatch => ({

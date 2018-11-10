@@ -7,13 +7,10 @@ You should use node 10.13.0 and yarn 1.12.1 o npm 6.4.1, if you use nvm just run
 
 Then:
 
-`yarn`
-
-or:
-
-`npm i`
+`yarn` or `npm i`
 
 You should also run [api](https://github.com/marconucara/kiwi-homework-api).
+
 
 ## Run the project
 
@@ -23,9 +20,10 @@ If you have api running, in the project directory, you can run:
 
 If you DO NOT have api running, in the project directory, you can run:
 
-`npm run start`
+`npm start`
 
 and the hints will be mocked.
+
 
 ## Test
 

@@ -1,12 +1,10 @@
 import { select, takeLatest, put, call } from 'redux-saga/effects';
-import fetch from 'isomorphic-fetch';
 import * as actions from './actions';
 
-const fetchHintsApi = async number => {
-  return fetch(`${process.env.REACT_APP_API_ENDPOINT || '/hints.json?'}${number}`)
-    .then(response => response.json())
-    .then(json => json.hints);
-}
+let fetchHintsApi;
+
+export const configureHintsApi = api => 
+  fetchHintsApi = api;
 
 export function* fetchHints() {
   const number = yield select(state => state.phone.number);
