@@ -13,7 +13,7 @@ const KeyboardWrapper = styled.div`
 
 const Keyboard = ({ onNumberClick, onToggleClick, onDeleteClick, onEndClick }) => (
   <KeyboardWrapper>
-    <PhoneButton hint="">1</PhoneButton>
+    <PhoneButton>1</PhoneButton>
     <PhoneButton onClick={() => onNumberClick(2)} hint="abc">2</PhoneButton>
     <PhoneButton onClick={() => onNumberClick(3)} hint="def">3</PhoneButton>
     <PhoneButton onClick={() => onNumberClick(4)} hint="ghi">4</PhoneButton>

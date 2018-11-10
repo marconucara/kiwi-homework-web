@@ -1,4 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Setup
 
@@ -6,7 +5,7 @@ You should use node 10.13.0 and yarn 1.12.1 o npm 6.4.1, if you use nvm just run
 
 `nvm use`
 
-Then of course:
+Then:
 
 `yarn`
 
@@ -31,7 +30,3 @@ and the hints will be mocked.
 ## Test
 
 `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-

@@ -24,16 +24,20 @@ const Textarea = styled.div`
   padding: 1em;
   flex-grow: 1;
   &::after {
-    content: "|";
-    font-size: 1.5em;
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 1.5em;
+    transform: translateY(0.2em);
+    background-color: currentColor;
     animation: ${cursor} 1s step-end infinite;
   }
 `;
 
-const Display = ({ text, hints, activeHintIndex }) => (
+const Display = ({ text, hints, activeHintIndex, onEndClick }) => (
   <DisplayWrapper>
-    <Textarea>{text}</Textarea>
-    <HintsList hints={hints} activeHintIndex={activeHintIndex} />
+    <Textarea dangerouslySetInnerHTML={{__html: text.replace(/ /g, '&nbsp;')}}/>
+    <HintsList hints={hints} activeHintIndex={activeHintIndex} onEndClick={onEndClick} />
   </DisplayWrapper>
 );
 

@@ -133,7 +133,7 @@ describe('phone reducer', () => {
     });
   });
 
-  it('should handle ADD_WORD', () => {
+  it('should handle ADD_WORD with active index', () => {
     expect(
       reducer({
         hints: ['aa', 'bb'],
@@ -144,6 +144,24 @@ describe('phone reducer', () => {
       })
     ).toEqual({
       text: 'old bb ',
+      hints: [],
+      activeHintIndex: 0,
+      number: '',
+    });
+  });
+
+  it('should handle ADD_WORD with action index', () => {
+    expect(
+      reducer({
+        hints: ['aa', 'bb'],
+        activeHintIndex: 1,
+        text: 'old ',
+      }, {
+        type: actions.ADD_WORD,
+        index: 0,
+      })
+    ).toEqual({
+      text: 'old aa ',
       hints: [],
       activeHintIndex: 0,
       number: '',

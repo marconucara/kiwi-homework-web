@@ -21,7 +21,7 @@ export const resetHints = () => ({
   type: HINTS_RESET
 });
 
-export const fetchFail = message => ({
+export const fetchHintsFail = message => ({
   type: HINTS_FETCH_FAILED,
   message,
 });
@@ -35,8 +35,9 @@ export const deleteDigitOrWord = () => ({
   type: DELETE_DIGIT_OR_WORD,
 });
 
-export const addWord = () => ({
+export const addWord = index => ({
   type: ADD_WORD,
+  index,
 });
 
 export const toggleActiveHint = () => ({

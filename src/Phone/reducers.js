@@ -64,10 +64,10 @@ export const phone = (
           (t => t.slice(0, t.match(/([^ ]* ?)$/).index))(state.text)
       };
     case ADD_WORD:
-      // TODO: it adds multiple whitespace but JSX/HTML do not show them
+      const index = typeof action.index === 'number' ? action.index : state.activeHintIndex;
       return { 
         ...state, 
-        text: state.text.concat(state.hints[state.activeHintIndex] || '', ' '),
+        text: state.text.concat(state.hints[index] || '', ' '),
         hints: [],
         activeHintIndex: 0,
         number: '',

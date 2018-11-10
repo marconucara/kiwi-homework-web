@@ -6,6 +6,7 @@ import Display from '../Display';
 import Keyboard from '../Keyboard';
 
 const PhoneWrapper = styled.div`
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -26,6 +27,19 @@ const PhoneWrapper = styled.div`
   }
 `;
 
+const Error = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+`;
+
 const Phone = ({
   text,
   hints,
@@ -34,15 +48,26 @@ const Phone = ({
   onEndClick,
   onToggleClick,
   onDeleteClick,
+  errorMessage,
 }) => (
   <PhoneWrapper>
-    <Display text={text} hints={hints} activeHintIndex={activeHintIndex} />
+    <Display
+      text={text}
+      hints={hints}
+      activeHintIndex={activeHintIndex}
+      onEndClick={onEndClick}
+    />
     <Keyboard 
       onNumberClick={onNumberClick}
       onEndClick={onEndClick}
       onToggleClick={onToggleClick}
       onDeleteClick={onDeleteClick}
     />
+    {errorMessage && 
+      <Error>
+        {errorMessage}<br />
+        Please check readme.md and refresh
+      </Error>}
   </PhoneWrapper>
 );
 
@@ -54,6 +79,7 @@ Phone.propTypes = {
   onEndClick: PropTypes.func.isRequired,
   onToggleClick: PropTypes.func.isRequired,
   onDeleteClick: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string,
 }
 
 export default Phone;

@@ -5,7 +5,17 @@ import { connect } from 'react-redux';
 import PhoneComponent from './component';
 import { addDigit, deleteDigitOrWord, addWord, toggleActiveHint } from './actions';
 
-const Phone = ({ text, hints, activeHintIndex, addDigit, deleteDigitOrWord, toggleActiveHint, addWord }) => (
+const Phone = ({
+  text,
+  hints,
+  activeHintIndex,
+  isFetching,
+  fetchErrorMessage,
+  addDigit,
+  deleteDigitOrWord,
+  toggleActiveHint,
+  addWord,
+}) => (
   <PhoneComponent 
     text={text}
     hints={hints}
@@ -14,6 +24,8 @@ const Phone = ({ text, hints, activeHintIndex, addDigit, deleteDigitOrWord, togg
     onEndClick={addWord}
     onToggleClick={toggleActiveHint}
     onDeleteClick={deleteDigitOrWord}
+    isFetching={isFetching}
+    errorMessage={fetchErrorMessage}
   />
 );
 
@@ -24,11 +36,12 @@ Phone.propTypes = {
   deleteDigitOrWord: PropTypes.func.isRequired,
   addWord: PropTypes.func.isRequired,
   toggleActiveHint: PropTypes.func.isRequired,
+  fetchErrorMessage: PropTypes.string,
 }
 
 export default connect(state => state.phone, dispatch => ({
   addDigit: digit => dispatch(addDigit(digit)),
   deleteDigitOrWord: () => dispatch(deleteDigitOrWord()),
-  addWord: () => dispatch(addWord()),
+  addWord: index => dispatch(addWord(index)),
   toggleActiveHint: () => dispatch(toggleActiveHint()),
 }))(Phone);

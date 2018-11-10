@@ -45,9 +45,11 @@ describe('actions', () => {
   it('should create an action to add word', () => {
     const expectedAction = {
       type: actions.ADD_WORD,
+      index: 0,
     };
-    expect(actions.addWord()).toEqual(expectedAction)
+    expect(actions.addWord(0)).toEqual(expectedAction)
   });
+  
 
   it('should create an action to toggle active hints', () => {
     const expectedAction = {

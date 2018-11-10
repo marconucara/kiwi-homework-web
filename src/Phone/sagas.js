@@ -21,7 +21,7 @@ export function* fetchHints() {
     const hints = yield call(fetchHintsApi, number);
     yield put(actions.setHints(hints));
   } catch (e) {
-    yield put(actions.fetchFail(e.message));
+    yield put(actions.fetchHintsFail(e.message));
   }
 }
 
