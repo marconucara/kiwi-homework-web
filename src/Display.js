@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 
 import HintsList from './HintsList';
@@ -40,5 +41,12 @@ const Display = ({ text, hints, activeHintIndex, onEndClick }) => (
     <HintsList hints={hints} activeHintIndex={activeHintIndex} onEndClick={onEndClick} />
   </DisplayWrapper>
 );
+
+Display.propTypes = {
+  text: PropTypes.string.isRequired,
+  hints: PropTypes.array.isRequired,
+  activeHintIndex: PropTypes.number.isRequired,
+  onEndClick: PropTypes.func.isRequired,
+}
 
 export default Display;
