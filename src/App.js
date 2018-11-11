@@ -7,7 +7,7 @@ import GlobalStyle from './globalStyle';
 import Phone from './Phone/container';
 import PhoneComponent from './Phone/component';
 
-import configureStore from './Phone/store';
+import configureStore from './store';
 
 const fetchHintsApi = async number => {
   return fetch(`${process.env.REACT_APP_API_ENDPOINT || '/hints.json?'}${number}`)

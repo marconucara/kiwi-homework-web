@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+
 import { 
   HINTS_FETCH_FAILED,
   HINTS_FETCH,
@@ -10,7 +10,7 @@ import {
   ADD_WORD,
 } from './actions'
 
-export const phone = (
+export default (
   state = {
     isFetching: false,
     hints: [],
@@ -81,9 +81,3 @@ export const phone = (
       return state;
   }
 }
-
-const rootReducer = combineReducers({
-  phone,
-})
-
-export default rootReducer;

@@ -1,4 +1,4 @@
-import { phone as reducer } from './reducers';
+import reducer from './reducers';
 import * as actions from './actions';
 
 describe('phone reducer', () => {

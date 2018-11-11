@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
 
-import { configureHintsApi, latestHints } from './sagas';
+import { configureHintsApi, latestHints } from './Phone/sagas';
 
 export default function configureStore(api) {
   configureHintsApi(api);

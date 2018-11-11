@@ -25,7 +25,7 @@ const HintListWrapper = styled.div`
 const HintListItem = styled.button`
   padding: 0.5em;
   font-size: 1em;
-  background-color: ${props => props.active ? 'rgb(0, 169, 145)' : "#f1f1f1"};
+  background-color: ${props => props.active ? 'rgb(0, 169, 145)' : '#f1f1f1'};
   ${props => props.active && 'color: #ffffff;'}
   appearence: none;
   border: 0;
