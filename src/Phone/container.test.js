@@ -9,7 +9,7 @@ const mockStore = configureStore();
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('components', () => {
+describe('component', () => {
   describe('Phone', () => {
     it('should render self and subcomponents with initial state', () => {
       const store = mockStore({
@@ -47,7 +47,7 @@ describe('components', () => {
       });
     
       const wrapper = shallow(
-        <Phone store={store}/>
+        <Phone store={store} />
       );
 
       const state = store.getState();
